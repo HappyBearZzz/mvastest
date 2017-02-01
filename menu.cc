@@ -3,6 +3,15 @@
 
 #include "menu.h"
 
+static void show_help(const std::vector<menu_item> &items)
+{
+    for (const auto &i : items) {
+        std::cout << " " << i.selection << "  - " << i.help << std::endl;
+    }
+    std::cout << " x  - Exit the menu" << std::endl
+        << " ?  - Show this help " << std::endl;
+}
+
 void show_menu(const std::vector<menu_item> &items, bool auto_exit)
 {
     bool done = false;
@@ -11,7 +20,7 @@ void show_menu(const std::vector<menu_item> &items, bool auto_exit)
         char input;
 
         std::cout << "[";
-        for (const auto& i : items) {
+        for (const auto &i : items) {
             std::cout << i.selection;
         }
         std::cout << "x?]: ";
@@ -19,18 +28,13 @@ void show_menu(const std::vector<menu_item> &items, bool auto_exit)
         std::cin >> input;
 
         if (input == '?') {
-            std::cout << std::endl;
-            for (const auto&i : items) {
-                std::cout << " " << i.selection << "  - " << i.help << std::endl;
-            }
-            std::cout << " x  - Exit the menu" << std::endl
-                << " ?  - Show this help " << std::endl;
+            show_help(items);
         } else if (input == 'x') {
             done = true;
         } else {
             bool found = false;
 
-            for (const auto&i : items) {
+            for (const auto &i : items) {
                 if (i.selection == input) {
                     i.func();
                     if (auto_exit)
