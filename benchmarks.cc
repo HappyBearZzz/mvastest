@@ -14,9 +14,10 @@ static void benchmark_create()
 {
     std::cout << "Benchmark VAS create-delete" << std::endl;
 
+    int i;
     auto start = std::chrono::high_resolution_clock::now();
 
-    for (int i = 0; i < ITERATIONS; ++i) {
+    for (i = 0; i < ITERATIONS; ++i) {
         auto vid = vas_create("test-create", 0600);
         if (vid < 0) {
             std::cout << "Failed to create VAS -- abort" << std::endl;
@@ -31,9 +32,9 @@ static void benchmark_create()
 
     auto stop = std::chrono::high_resolution_clock::now();
 
-    std::cout << ITERATIONS << " create-delete cycles took "
-        << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count()
-        << "ms" << std::endl;
+    std::cout << "DONE - " << i << " create-delete cycles " << std::endl
+        << "Total: " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << "ms" << std::endl
+        << "Per cycle: " << std::chrono::duration_cast<std::chrono::nanoseconds>((stop - start)/ITERATIONS).count() << "ns" << std::endl;
 }
 
 void benchmark_tests()
