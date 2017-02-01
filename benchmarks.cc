@@ -14,7 +14,7 @@ static constexpr int ITERATIONS = 100000;
 
 static void benchmark_create()
 {
-    std::cout << "Benchmark VAS create-delete" << std::endl;
+    std::cout << "Benchmark VAS create-delete";
 
     int i;
     auto start = std::chrono::high_resolution_clock::now();
@@ -34,14 +34,14 @@ static void benchmark_create()
 
     auto stop = std::chrono::high_resolution_clock::now();
 
-    std::cout << "DONE - " << i << " create-delete cycles " << std::endl
-        << "Total: " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << "ms" << std::endl
-        << "Per cycle: " << std::chrono::duration_cast<std::chrono::nanoseconds>((stop - start)/ITERATIONS).count() << "ns" << std::endl;
+    std::cout << " - DONE - " << i << " cycles " << std::endl
+        << "total: " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << "ms"
+        << " -- per cycle: " << std::chrono::duration_cast<std::chrono::nanoseconds>((stop - start)/ITERATIONS).count() << "ns" << std::endl;
 }
 
 static void benchmark_attach()
 {
-    std::cout << "Benchmark VAS attach-detach" << std::endl;
+    std::cout << "Benchmark VAS attach-detach";
 
     auto vid = vas_create("test-attach", 0600);
     if (vid < 0) {
@@ -70,9 +70,9 @@ static void benchmark_attach()
         std::cout << "Failed to delete VAS" << std::endl;
     }
 
-    std::cout << "DONE - " << i << " attach-detach cycles " << std::endl
-        << "Total: " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << "ms" << std::endl
-        << "Per cycle: " << std::chrono::duration_cast<std::chrono::nanoseconds>((stop - start)/ITERATIONS).count() << "ns" << std::endl;
+    std::cout << " - DONE - " << i << " cycles " << std::endl
+        << "total: " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << "ms"
+        << " -- per cycle: " << std::chrono::duration_cast<std::chrono::nanoseconds>((stop - start)/ITERATIONS).count() << "ns" << std::endl;
 }
 
 void benchmark_tests()
