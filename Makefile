@@ -3,7 +3,7 @@ CFLAGS ?= -std=c11 -Wall -Wextra
 LDFLAGS += -lmvas
 
 TARGET = vastests
-SOURCES = benchmarks.cc interactive.cc main.cc
+SOURCES = menu.cc benchmarks.cc interactive.cc main.cc
 
 all: ${TARGET}
 
