@@ -10,7 +10,7 @@
 #include "vastests.h"
 
 
-static constexpr int ITERATIONS = 10000;
+static constexpr int ITERATIONS = 100000;
 
 static void benchmark_create()
 {
