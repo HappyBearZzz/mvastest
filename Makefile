@@ -9,3 +9,8 @@ all: ${TARGET}
 
 vastests: ${SOURCES}
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+
+clean:
+	rm -f ${TARGET}
+
+.PHONY: clean
