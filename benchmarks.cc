@@ -14,7 +14,7 @@ static constexpr int ITERATIONS = 100000;
 
 static void benchmark_create()
 {
-    std::cout << "Benchmark VAS create-delete";
+    std::cout << "Benchmark VAS create-delete" << std::flush;
 
     int i;
     auto start = std::chrono::high_resolution_clock::now();
@@ -41,7 +41,7 @@ static void benchmark_create()
 
 static void benchmark_attach()
 {
-    std::cout << "Benchmark VAS attach-detach";
+    std::cout << "Benchmark VAS attach-detach" << std::flush;
 
     auto vid = vas_create("test-attach", 0600);
     if (vid < 0) {
@@ -77,7 +77,7 @@ static void benchmark_attach()
 
 static void benchmark_switch()
 {
-    std::cout << "Benchmark VAS switching";
+    std::cout << "Benchmark VAS switching" << std::flush;
 
     auto vid = vas_create("test-switch", 0600);
     if (vid < 0) {
@@ -121,7 +121,7 @@ static void benchmark_switch()
 
 static void benchmark_switch_between()
 {
-    std::cout << "Benchmark between VAS switching";
+    std::cout << "Benchmark between VAS switching" << std::flush;
 
     auto vid1 = vas_create("test-switch1", 0600);
     auto vid2 = vas_create("test-switch2", 0600);
