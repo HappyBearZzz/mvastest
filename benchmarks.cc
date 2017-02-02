@@ -66,13 +66,13 @@ static void benchmark_attach()
 
     auto stop = std::chrono::high_resolution_clock::now();
 
-    if (vas_delete(vid) != 0) {
-        std::cout << "Failed to delete VAS" << std::endl;
-    }
-
     std::cout << " - DONE - " << i << " cycles " << std::endl
         << "total: " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << "ms"
         << " -- per cycle: " << std::chrono::duration_cast<std::chrono::nanoseconds>((stop - start)/ITERATIONS).count() << "ns" << std::endl;
+
+    if (vas_delete(vid) != 0) {
+        std::cout << "Failed to delete VAS" << std::endl;
+    }
 }
 
 void benchmark_tests()
