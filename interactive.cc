@@ -25,15 +25,15 @@ static void action_create_segment()
     segid_t sid;
 
     try {
-        std::cout << "name: ";
+        std::cout << "name:  ";
         std::cin >> name;
         std::cout << "start: ";
         std::cin >> start_string;
         start = stol(start_string, nullptr, 0);
-        std::cout << "end: ";
+        std::cout << "end:   ";
         std::cin >> end_string;
         end = stol(end_string, nullptr, 0);
-        std::cout << "mode: ";
+        std::cout << "mode:  ";
         std::cin >> mode_string;
         mode = stoi(mode_string, nullptr, 0);
     } catch (std::invalid_argument&) {

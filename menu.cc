@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include <vector>
 
 #include "menu.h"
@@ -25,7 +26,9 @@ void show_menu(const std::vector<menu_item> &items, bool auto_exit)
         }
         std::cout << "x?]: ";
 
-        std::cin >> input;
+        input = std::cin.get();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin.clear();
 
         if (input == '?') {
             show_help(items);
